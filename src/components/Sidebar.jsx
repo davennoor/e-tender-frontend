@@ -13,7 +13,7 @@ export default function Sidebar() {
     try {
         // Cabut token di server (route /logout memang dilindungi auth:sanctum)
         await axios.post(
-            "http://127.0.0.1:8000/api/logout",
+            "/api/logout",
             {},
             {
                 headers: {

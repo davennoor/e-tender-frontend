@@ -5,7 +5,7 @@ import MainLayout from "../components/MainLayout";
 // ============================================================
 // KONFIGURASI API (sederhana, cukup di file ini saja)
 // ============================================================
-const API_URL = "http://127.0.0.1:8000/api/dokumenpendukung";
+const API_URL = "/api/dokumenpendukung";
 
 // Ambil token dari localStorage lalu tempel ke header setiap request.
 // PENTING: key "token" harus sama dengan yang kamu simpan saat login.
@@ -82,7 +82,7 @@ export default function DokumenPendukung() {
     // Ambil daftar perusahaan dari API untuk dropdown
     const fetchPerusahaan = async () => {
         try {
-            const response = await axios.get("http://127.0.0.1:8000/api/perusahaan/index", getConfig());
+            const response = await axios.get("/api/perusahaan/index", getConfig());
             setPerusahaanList(response.data.data ?? response.data);
         } catch (error) {
             console.error("Gagal mengambil data perusahaan:", error.response?.data || error);

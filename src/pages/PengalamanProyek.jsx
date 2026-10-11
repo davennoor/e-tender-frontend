@@ -5,7 +5,7 @@ import MainLayout from "../components/MainLayout";
 // ============================================================
 // KONFIGURASI API (sederhana, cukup di file ini saja)
 // ============================================================
-const API_URL = "http://127.0.0.1:8000/api/pengalamanproyek";
+const API_URL = "/api/pengalamanproyek";
 
 // Ambil token dari localStorage lalu tempel ke header setiap request.
 // PENTING: key "token" harus sama dengan yang kamu simpan saat login.

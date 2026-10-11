@@ -30,7 +30,7 @@ function Login() {
     setLoading(true);
     setErrorMsg("");
     try{
-      const response = await axios.post('http://127.0.0.1:8000/api/login',form);
+      const response = await axios.post('/api/login',form);
       localStorage.setItem("token",response.data.token);
       // Simpan data user (dipakai halaman Tender untuk user_id). Aman kalau tidak ada.
       if (response.data.user) {

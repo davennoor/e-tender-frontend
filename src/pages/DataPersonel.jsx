@@ -39,7 +39,7 @@ export default function DataPersonel() {
     const fetchPersonel = async () => {
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:8000/api/personel/index", getAuthHeader());
+            const response = await axios.get("/api/personel/index", getAuthHeader());
             if (response.data.status === "success") {
                 setPersonelList(response.data.data);
             }
@@ -53,7 +53,7 @@ export default function DataPersonel() {
     // Fetch daftar perusahaan untuk pilihan dropdown di modal
     const fetchPerusahaanOptions = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/api/perusahaan/index", getAuthHeader());
+            const response = await axios.get("/api/perusahaan/index", getAuthHeader());
             if (response.data.status === "success" || Array.isArray(response.data.data)) {
                 setPerusahaanOptions(response.data.data);
             }
@@ -114,9 +114,9 @@ export default function DataPersonel() {
 
         try {
             if (modalMode === "tambah") {
-                await axios.post("http://localhost:8000/api/personel/store", payload, getAuthHeader());
+                await axios.post("/api/personel/store", payload, getAuthHeader());
             } else {
-                await axios.put(`http://localhost:8000/api/personel/update/${selectedId}`, payload, getAuthHeader());
+                await axios.put(`/api/personel/update/${selectedId}`, payload, getAuthHeader());
             }
 
             fetchPersonel();
@@ -145,7 +145,7 @@ export default function DataPersonel() {
     const handleDelete = async (id) => {
         if (window.confirm("Apakah Anda yakin ingin menghapus data personel ini?")) {
             try {
-                await axios.delete(`http://localhost:8000/api/personel/destroy/${id}`, getAuthHeader());
+                await axios.delete(`/api/personel/destroy/${id}`, getAuthHeader());
                 fetchPersonel();
             } catch (error) {
                 console.error("Gagal menghapus data:", error);

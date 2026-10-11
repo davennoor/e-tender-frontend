@@ -6,7 +6,7 @@ import axios from "axios";
 // ============================================================
 // KONFIGURASI API (token Sanctum dikirim di setiap request)
 // ============================================================
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = "/api";
 
 // PENTING: key "token" harus sama dengan yang disimpan saat login.
 const getConfig = () => ({

@@ -38,7 +38,7 @@ export default function DataPerusahaan() {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:8000/api/perusahaan/index", getAuthHeader());
+            const response = await axios.get("/api/perusahaan/index", getAuthHeader());
             setPerusahaanList(response.data.data);
         } catch (error) {
             console.error("Gagal mengambil data:", error);
@@ -89,9 +89,9 @@ export default function DataPerusahaan() {
         e.preventDefault();
         try {
             if (modalMode === "tambah") {
-                await axios.post("http://localhost:8000/api/perusahaan/store", formData, getAuthHeader());
+                await axios.post("/api/perusahaan/store", formData, getAuthHeader());
             } else {
-                await axios.put(`http://localhost:8000/api/perusahaan/update/${selectedId}`, formData, getAuthHeader());
+                await axios.put(`/api/perusahaan/update/${selectedId}`, formData, getAuthHeader());
             }
             fetchData();
             handleCloseModal();
@@ -104,7 +104,7 @@ export default function DataPerusahaan() {
     const handleDelete = async (id) => {
         if (window.confirm("Yakin ingin menghapus data perusahaan ini?")) {
             try {
-                await axios.delete(`http://localhost:8000/api/perusahaan/destroy/${id}`, getAuthHeader());
+                await axios.delete(`/api/perusahaan/destroy/${id}`, getAuthHeader());
                 fetchData();
             } catch (error) {
                 console.error("Gagal menghapus data:", error);

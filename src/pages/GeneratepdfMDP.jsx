@@ -27,7 +27,7 @@ export default function GeneratepdfMDP() {
         const fetchTenders = async () => {
             try {
                 // Ganti URL dengan base URL backend kamu jika berbeda
-                const response = await axios.get('http://localhost:8000/api/tender/index', {
+                const response = await axios.get('/api/tender/index', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -69,7 +69,7 @@ export default function GeneratepdfMDP() {
 
         try {
             // Kita request ke endpoint generate-pdf milik Laravel
-            const response = await axios.get(`http://localhost:8000/api/tender/${selectedTender.id}/generate-pdf`, {
+            const response = await axios.get(`/api/tender/${selectedTender.id}/generate-pdf`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
